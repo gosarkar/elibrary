@@ -12,7 +12,9 @@ pipeline{
         stage("Check-out pipeline script"){
             steps{
                 dir('pipelinescript'){
-                    currentBuild.displayName = "#${BUILD_NUMBER} ${branchName}"
+                    script{
+                       currentBuild.displayName = "#${BUILD_NUMBER} ${branchName}"
+                    }
                     echo "======== executing check-out pipeline script repo ========"
                     checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/gosarkar/pipelinescript.git']]]
                 }
