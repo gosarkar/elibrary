@@ -13,7 +13,7 @@ pipeline{
             steps{
                 echo "======== executing check-out pipeline script repo ========"
                 checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/gosarkar/pipelinescript.git']]]
-                bat groovyHome+'/bin/groovy script/script1'
+                bat groovyHome+'/bin/groovy script/script1 arg1'
                 
             }
             post{
