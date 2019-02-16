@@ -12,7 +12,7 @@ pipeline{
         stage("A"){
             steps{
                 echo "========executing A========"
-                bat groovyHome+'/bin/groovy C:/GS/Practise/Jenkins/script1'
+                bat groovyHome+'/bin/groovy script/script1'
                 
             }
             post{
