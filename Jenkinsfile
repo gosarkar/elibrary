@@ -16,7 +16,7 @@ pipeline{
                        currentBuild.displayName = "#${BUILD_NUMBER} ${branchName}"
                     }
                     echo "======== executing check-out pipeline script repo ========"
-                    checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/gosarkar/pipelinescript.git']]]
+                    checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: "*/${branchName}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/gosarkar/pipelinescript.git']]]
                 }
                 bat groovyHome+'/bin/groovy pipelinescript/script/script1 arg1'
                 
